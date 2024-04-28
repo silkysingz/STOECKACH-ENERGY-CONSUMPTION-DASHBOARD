@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Use correct character set. -->
+        <meta charset="utf-8">
+        <!-- Tell IE to use the latest, best version. -->
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <!-- Make the app on mobile take up the full browser screen and disable user scaling. -->
+        <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+        <title>DASHBOARD FOR STOCKACH HEATING DEMAND </title>
+        <!-- The Cesium library. -->
+        <script src="https://cesium.com/downloads/cesiumjs/releases/1.81/Build/Cesium/Cesium.js"></script>  <!--link cesium.js-->
+        <link href="https://cesium.com/downloads/cesiumjs/releases/1.81/Build/Cesium/Widgets/widgets.css" rel="stylesheet"> <!--link  cesium stylesheet-->
+		<!-- The Chart.js library. -->
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  <!--link chart.js-->
+        <!-- stylesheets -->
+        <link rel="stylesheet" href="./CSS/index.css" media="screen"> <!--link own stylesheet-->
+	</head>
+    <body>
+        <!-- defining container to keep cesium viewer and chart -->
+        <div class="container">
+            <div class="cesium-container" id="cesiumContainer"></div>
+            <div>
+                <div class="chart-container" >
+                    <canvas id="myChart1"></canvas>
+                </div>
+                <div class="chart-container">
+                    <canvas id="myChart2"></canvas>
+                </div>
+            </div>
+        </div>
+        <!-- defining menu panel -->
+        <div class="backdrop" id="menu">
+            <h2>DASHBOARD FOR STOCKACH HEATING DEMAND</h2>		 
+			<div class="nowrap">
+                <input id="3dbuildings" name="source" type="radio" checked/>
+                <label for="3dbuildings">3D Buildings</label>
+            </div>
+            <div class="nowrap">
+                <input id="heatdemand" name="source" type="radio"/>
+                <label for="heatdemand">Specific Heating Demand</label>
+            </div>
+			<div id = "legend" style="display: none;">
+				<hr color='white'>
+				<div class='my-legend' id="legendcontainer">
+					<div class='legend-title'>Specific Heating Demand (kWh/m<sup>2</sup>.a)</div>
+					<div class='legend-scale'>
+						<ul class='legend-labels'><!--change!!-->
+							<li><span style='background:#61B949;'></span>Less than 25</li>
+							<li><span style='background:#A4C711;'></span>26 to 50</li>
+							<li><span style='background:#B2D531;'></span>51 to 75</li>
+							<li><span style='background:#D1E023;'></span>76 to 100</li>
+							<li><span style='background:#F6EC00;'></span>101 to 125</li>
+							<li><span style='background:#FECE02;'></span>126 to 150</li>
+							<li><span style='background:#F9A717;'></span>151 to 200</li>
+							<li><span style='background:#F56D1F;'></span>201 to 250</li>
+							<li><span style='background:#F22E22;'></span>More than 251</li>
+						
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>		
+		<a href="https://www.hft-stuttgart.de/" target='_blank'>
+        <div class="credit"></div>
+        </a>
+        <!-- javascript -->
+        <script src="./Source/App.js"></script>
+    </body>
+</html>
